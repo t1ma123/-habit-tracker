@@ -1,10 +1,5 @@
-!\[CI/CD](https://github.com/t1ma123/-habit-tracker/actions/workflows/ci-cd.yml/badge.svg)
-
-
-
-\# Habit Tracker
-
-
-
-╨Я╤А╨╕╨╗╨╛╨╢╨╡╨╜╨╕╨╡ ╨┤╨╗╤П ╨╛╤В╤Б╨╗╨╡╨╢╨╕╨▓╨░╨╜╨╕╤П ╨┐╨╛╨╗╨╡╨╖╨╜╤Л╤Е ╨┐╤А╨╕╨▓╤Л╤З╨╡╨║.
-
+![CI/CD](https://github.com/t1ma123/-habit-tracker/actions/workflows/ci-cd.yml/badge.svg) 
+ 
+# Habit Tracker 
+ 
+Приложение для отслеживания полезных привычек. 
