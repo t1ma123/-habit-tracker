@@ -1,33 +1,18 @@
-name: CI/CD
+from src.app import calculate_streak
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt -r requirements-dev.txt
-      - run: pytest -v
-        env:
-          PYTHONPATH: .
+def test_streak_empty():
+    assert calculate_streak([]) == 0
 
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy web --project-name=habit-tracker
+
+def test_streak_one():
+    assert calculate_streak([True]) == 1
+
+
+def test_streak_broken():
+    assert calculate_streak([True, False, True]) == 1
+
+
+def test_streak_is_capped_at_365():
+    long_streak = [True] * 400
+    assert calculate_streak(long_streak) == 365
