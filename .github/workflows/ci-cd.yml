@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-    test:
+  test:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,7 +19,6 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements-dev.txt
       - run: pytest -v
-
 
   deploy:
     needs: test
