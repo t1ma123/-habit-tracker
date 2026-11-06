@@ -1,10 +1,8 @@
-def calculate_streak(habit_checkins: list) -> int:
-    """..."""
+def calculate_streak(check_ins: list[bool]) -> int:
+    """Текущая серия (streak) выполнения привычки, максимум 365 дней."""
     streak = 0
-    for done in reversed(habit_checkins):
+    for done in reversed(check_ins):
         if not done:
             break
         streak += 1
-    return min(streak, 365)    # ← ЭТА СТРОКА ИЗМЕНЕНА
-    print(f"...: {streak}")
-    return streak
+    return min(streak, 365)
