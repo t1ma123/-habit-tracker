@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException,import os
+import os
+from fastapi import FastAPI, HTTPException
 
 from app.schemas import CheckInCreate, Habit, HabitCreate, StreakOut
 from app.streak import calculate_streak
